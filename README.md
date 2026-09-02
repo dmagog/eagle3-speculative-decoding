@@ -2,12 +2,14 @@
 
 Воспроизведение [EAGLE-3](https://arxiv.org/abs/2503.01840) (Li, Wei, Zhang, Zhang — NeurIPS 2025) на Qwen3-1.7B и Qwen3-4B, на бесплатной Kaggle T4. Статья заявляет ускорение до 6.5×; я разобрал метод по частям и померил каждую — включая режимы, в которых он проигрывает обычной генерации.
 
+Работа сделана для курса ШАД в Сириусе, 2026.
+
 Разбор вышел двумя ноутбуками:
 
-| | Ноутбук | Язык | Копия здесь |
-|---|---|---|---|
-| 🇷🇺 | [EAGLE-3 Qwen3-1.7B speculative decoding](https://www.kaggle.com/code/georgymamarin/eagle-3-qwen3-1-7b-speculative-decoding) | русский | [`.ipynb`](notebooks/ru/eagle3-qwen3.ipynb) · [`.pdf`](notebooks/ru/eagle3-qwen3.pdf) |
-| 🇬🇧 | [Anatomy of a Speedup: EAGLE-3 on Qwen3](https://www.kaggle.com/code/georgymamarin/anatomy-of-a-speedup-eagle-3-on-qwen3) | английский | [`.ipynb`](notebooks/en/eagle3-qwen3-en.ipynb) · [`.pdf`](notebooks/en/eagle3-qwen3-en.pdf) |
+| Язык | Ноутбук на Kaggle | Копия здесь |
+|---|---|---|
+| Русский | [EAGLE-3 Qwen3-1.7B speculative decoding](https://www.kaggle.com/code/georgymamarin/eagle-3-qwen3-1-7b-speculative-decoding) | [`.ipynb`](notebooks/ru/eagle3-qwen3.ipynb) · [`.pdf`](notebooks/ru/eagle3-qwen3.pdf) |
+| English | [Anatomy of a Speedup: EAGLE-3 on Qwen3](https://www.kaggle.com/code/georgymamarin/anatomy-of-a-speedup-eagle-3-on-qwen3) | [`.ipynb`](notebooks/en/eagle3-qwen3-en.ipynb) · [`.pdf`](notebooks/en/eagle3-qwen3-en.pdf) |
 
 <p align="center">
   <img src="figures/hero.png" width="620" alt="обычная генерация против спекулятивной">

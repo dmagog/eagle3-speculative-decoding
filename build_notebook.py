@@ -453,7 +453,7 @@ attention без flash-ядер, пооперационный запуск CUDA-
 которое я дальше измерю, объясняется не выигрышем по памяти, а амортизацией неоптимальности базового варианта.
 На вылизанном стеке (vLLM, SGLang, CUDA-графы) обычный шаг ближе к пределу памяти, и ускорение
 от спекуляции получается скромнее: независимые замеры на vLLM дают 1.3–2× там, где авторские
-фреймворки показывают 4–6× ([«Performance or Illusion?», 2601.11580](https://arxiv.org/abs/2601.11580)).
+фреймворки показывают 4–6× (<a href="https://arxiv.org/abs/2601.11580">«Performance or Illusion?», 2601.11580</a>).
 <br><br>
 Второе ограничение — batch = 1: я измеряю латентность. В проде важнее пропускная способность, а там картина другая: при большом батче
 вычислители загружены и без всякой спекуляции, проверять черновики уже нечем, и выигрыш
@@ -826,7 +826,7 @@ def show_table(df):
     """Kaggle рендерит таблицы мельче основного текста — задаём кегль явно."""
     return df.style.set_table_styles(
         [{"selector": "th", "props": [("font-size", "13px")]}]
-    ).set_properties(**{"font-size": "13px"})
+    ).set_properties(**{"font-size": "13px"}).format(precision=2)
 
 display(show_table(summary))
 
@@ -1985,8 +1985,8 @@ md('''### Что читать дальше
 **Код и веса**
 
 - [SafeAILab/EAGLE](https://github.com/SafeAILab/EAGLE) — официальная реализация, коммит `cb7e0841`, лицензия Apache 2.0. Ноутбук использует её как есть, за единственным исключением: три строки `cnets.py`, которые правит ячейка окружения в §0 — без них §11 не загрузит голову Qwen3-4B. Смотреть надо `eagle/model/cnets.py` (построение дерева) и `eagle/model/utils.py` (проверка и работа с KV).
-- [AngelSlim/Qwen3-1.7B_eagle3](https://huggingface.co/AngelSlim/Qwen3-1.7B_eagle3) — черновая голова, обученная командой [AngelSlim](https://github.com/Tencent/AngelSlim) (Tencent). Она не авторская: замеры самой команды дают длину принятия 1.8–3.5, что сходится с моей; ускорение 1.4–1.9× они приводят к своей базовой линии.
-  Та же команда обучила и [AngelSlim/Qwen3-4B_eagle3](https://huggingface.co/AngelSlim/Qwen3-4B_eagle3) — голову, на которой считает §11.
+- [AngelSlim/Qwen3-1.7B_eagle3](https://huggingface.co/AngelSlim/Qwen3-1.7B_eagle3) — черновая голова, обученная командой [AngelSlim](https://github.com/Tencent/AngelSlim) (Tencent). Она не авторская: замеры самой команды дают длину принятия 1.8–3.5, что сходится с моей; ускорение 1.4–1.9× они приводят к своей базовой линии. Для Kaggle я зеркалировал её как модель [qwen3-1-7b-eagle3-draft-head](https://www.kaggle.com/models/georgymamarin/qwen3-1-7b-eagle3-draft-head).
+  Та же команда обучила и [AngelSlim/Qwen3-4B_eagle3](https://huggingface.co/AngelSlim/Qwen3-4B_eagle3) — голову, на которой я считаю в §11; зеркало этой головы — [qwen3-4b-eagle3-draft-head](https://www.kaggle.com/models/georgymamarin/qwen3-4b-eagle3-draft-head).
 - [Qwen/Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B) — целевая модель, лицензия Apache 2.0; в §11 к ней добавляется [Qwen/Qwen3-4B](https://huggingface.co/Qwen/Qwen3-4B) под той же лицензией.
 - Наборы вопросов (MT-Bench, GSM8K, HumanEval, Alpaca) взяты из каталога `eagle/data` того же репозитория — это те же наборы, на которых считает статью.
 

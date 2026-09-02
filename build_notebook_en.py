@@ -439,7 +439,7 @@ CUDA graphs. Speculative decoding divides that overhead by τ accepted tokens, s
 speedup measured below amortizes the baseline's inefficiency rather than beating the memory wall.
 On a tuned stack (vLLM, SGLang, CUDA graphs) an ordinary step sits closer to the memory limit and
 speculation gains less: independent vLLM measurements report 1.3–2× where the authors' own
-frameworks show 4–6× (["Performance or Illusion?", 2601.11580](https://arxiv.org/abs/2601.11580)).
+frameworks show 4–6× (<a href="https://arxiv.org/abs/2601.11580">"Performance or Illusion?", 2601.11580</a>).
 <br><br>
 One more boundary, without which the numbers read wrong. Everything measured here is latency at
 batch = 1. Production cares about throughput, and that picture is different: at a large batch the
@@ -813,7 +813,7 @@ def show_table(df):
     """Kaggle renders styled tables smaller than body text — set the size explicitly."""
     return df.style.set_table_styles(
         [{"selector": "th", "props": [("font-size", "13px")]}]
-    ).set_properties(**{"font-size": "13px"})
+    ).set_properties(**{"font-size": "13px"}).format(precision=2)
 
 display(show_table(summary))
 
@@ -1983,8 +1983,8 @@ md('''### Further reading
 **Code and weights**
 
 - [SafeAILab/EAGLE](https://github.com/SafeAILab/EAGLE) — the official implementation, commit `cb7e0841`, Apache 2.0. This notebook uses it as published, with the single three-line exception [§11](#scaling) documents; `eagle/model/cnets.py` (tree construction) and `eagle/model/utils.py` (verification and KV handling) are the files worth reading.
-- [AngelSlim/Qwen3-1.7B_eagle3](https://huggingface.co/AngelSlim/Qwen3-1.7B_eagle3) — the draft head, trained by the [AngelSlim](https://github.com/Tencent/AngelSlim) team (Tencent), attached here as a [Kaggle model](https://www.kaggle.com/models/georgymamarin/qwen3-1-7b-eagle3-draft-head). Not the authors' own: the team's measurements report acceptance length 1.8–3.5, which matches mine; their 1.4–1.9× speedup is quoted against their own baseline.
-- [Qwen/Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B) — the target model, Apache 2.0, attached from the official [Qwen 3 Kaggle page](https://www.kaggle.com/models/qwen-lm/qwen-3).
+- [AngelSlim/Qwen3-1.7B_eagle3](https://huggingface.co/AngelSlim/Qwen3-1.7B_eagle3) — the draft head, trained by the [AngelSlim](https://github.com/Tencent/AngelSlim) team (Tencent), attached here as a [Kaggle model](https://www.kaggle.com/models/georgymamarin/qwen3-1-7b-eagle3-draft-head). Not the authors' own: the team's measurements report acceptance length 1.8–3.5, which matches mine; their 1.4–1.9× speedup is quoted against their own baseline. The same team trained [AngelSlim/Qwen3-4B_eagle3](https://huggingface.co/AngelSlim/Qwen3-4B_eagle3) — the head §11 runs on, mirrored as [qwen3-4b-eagle3-draft-head](https://www.kaggle.com/models/georgymamarin/qwen3-4b-eagle3-draft-head).
+- [Qwen/Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B) — the target model, Apache 2.0, attached from the official [Qwen 3 Kaggle page](https://www.kaggle.com/models/qwen-lm/qwen-3); §11 adds [Qwen/Qwen3-4B](https://huggingface.co/Qwen/Qwen3-4B) under the same licence.
 - The question sets (MT-Bench, GSM8K, HumanEval, Alpaca) come from the same repository's `eagle/data` — the very sets the paper reports on.
 
 *Прочесть этот разбор по-русски: [русская версия](https://www.kaggle.com/code/georgymamarin/eagle-3-qwen3-1-7b-speculative-decoding) — исходный ноутбук, сделанный для отбора Школы анализа данных.*

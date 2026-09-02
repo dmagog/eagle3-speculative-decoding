@@ -1,0 +1,26 @@
+{
+  "id": "georgymamarin/eagle-3-qwen3-1-7b-speculative-decoding",
+  "title": "EAGLE-3 Qwen3-1.7B speculative decoding",
+  "code_file": "eagle3-qwen3.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "false",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": "true",
+  "keywords": [
+    "gpu",
+    "nlp",
+    "transformers"
+  ],
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "qwen-lm/qwen-3/Transformers/1.7b/1",
+    "georgymamarin/qwen3-1-7b-eagle3-draft-head/pyTorch/fp16/1",
+    "qwen-lm/qwen-3/Transformers/4b/1",
+    "georgymamarin/qwen3-4b-eagle3-draft-head/pyTorch/bf16/1"
+  ]
+}

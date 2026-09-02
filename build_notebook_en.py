@@ -6,7 +6,10 @@ import os
 import re
 from urllib.parse import quote
 
-OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kernel", "en")
+_HERE = os.path.dirname(os.path.abspath(__file__))
+# каталог ядра: в рабочей папке это notebook_en/, в репозитории — kernel/en
+OUT_DIR = (os.path.join(_HERE, "kernel", "en") if os.path.isdir(os.path.join(_HERE, "kernel"))
+           else os.path.join(_HERE, "notebook_en"))
 os.makedirs(OUT_DIR, exist_ok=True)
 
 cells = []
